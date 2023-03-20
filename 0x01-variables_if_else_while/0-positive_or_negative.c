@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 /**
- * Main - A program that generates a random number and determintes if it is positive or negative
+ * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: o (success)
  */
 int main(void)
 {
@@ -15,10 +15,11 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	printf("%d ", n);
 	if (n == 0)
-		printf("is zero \n");
+		printf("is zero");
 	else if (n > 0)
-		printf("is positive \n");
+		printf("is positive");
 	else
-		printf("is negative \n");
+		printf("is negative");
+	printf("\n");
 	return (0);
 }
