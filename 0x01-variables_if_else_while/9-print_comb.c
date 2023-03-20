@@ -1,27 +1,19 @@
 #include <stdio.h>
-
 /**
  * main - Entry point
- * Description: print possible combinations
+ * Description: print combination of the numbers 0-9
  * Return: 0 (success)
  */
 int main(void)
 {
-	int i, j;
-
-	for (i = 0; i < 10; ++i)
+	int num;
+	for (num = 48; num <= 57; num++)
 	{
-		for (j = i; j < 10; ++j)
+		putchar((char)num);
+		if (num != 57)
 		{
-			putchar(i + '0');
 			putchar(',');
 			putchar(' ');
-			putchar(j + '0');
-			if (i != 9 || j != 9)
-			{
-				putchar(',');
-				putchar(' ');
-			}
 		}
 	}
 	putchar('\n');
