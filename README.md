@@ -1,1 +1,1 @@
-Debbugging in C
+C - Pointers, Arrays and Strings
