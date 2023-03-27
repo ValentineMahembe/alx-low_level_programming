@@ -2,9 +2,9 @@
 
 /**
  * rev_string - reverse a string
- * @s: string to be processed
+ * @str: string to be processed
  */
-void rev_string(char *s)
+void rev_string(char *str)
 {
 	int len = 0;
 	char temp;
