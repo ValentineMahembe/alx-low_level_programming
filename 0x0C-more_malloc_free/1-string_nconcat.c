@@ -1,43 +1,45 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * string_nconcat - concats 2 strings
- * @s1: string source
- * @s2: string destination
- * @n: number of bytes
+ * string_nconcat - Concatenates two strings using at
+ *                  most an inputted number of bytes.
+ * @s1: The first string.
+ * @s2: The second string.
+ * @n: The maximum number of bytes of s2 to concatenate to s1.
  *
- * Return: NULL if function fails
- * else return pointer tonewly allocated space in memory
+ * Return: If the function fails - NULL.
+ *         Otherwise - a pointer to the concatenated space in memory.
  */
-char *string_nconcat(char *s1, char *s, unsigned int n)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *new_str;
-	unsigned int i, j;
+	char *concat;
+	unsigned int len = n, index;
 
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
 
-	i = strlen(s1);
-	j = strlen(s2);
+	for (index = 0; s1[index]; index++)
+		len++;
 
-	if (n >= j)
-		n = j;
+	concat = malloc(sizeof(char) * (len + 1));
 
-	new_str = malloc(sizeof(char) * (i + n + 1));
+	if (concat == NULL)
+		return (NULL);
 
-	if (new_str == NULL)
-        	return (NULL);
+	len = 0;
 
-    	for (i = 0; s1[i] != '\0'; i++)
-        	new_str[i] = s1[i];
+	for (index = 0; s1[index]; index++)
+		concat[len++] = s1[index];
 
-	for (j = 0; j < n; j++)
-        	new_str[i + j] = s2[j];
-	new_str[i + j] = '\0';
+	for (index = 0; s2[index] && index < n; index++)
+		concat[len++] = s2[index];
 
-	return (new_str);
+	concat[len] = '\0';
+
+	return (concat);
 }
+
