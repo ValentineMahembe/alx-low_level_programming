@@ -16,13 +16,13 @@ int _strlen(char *str)
 }
 
 /**
- * _strcpy - copy string pointed by src into dest var
+ * _strcopy - copy string pointed by src into dest var
  *
  * @dest: buffer storing string to be copied
  * @src: buffer storing string to copy
  * Return: copied string
  */
-char *_strcpy(char *dest, char *src)
+char *_strcopy(char *dest, char *src)
 {
 	int index = 0;
 
@@ -55,7 +55,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free (d);
 		return (NULL);
 	}
-	_strcpy(d->name, name);
+	_strcopy(d->name, name);
 
 	d->age = age;
 
@@ -66,7 +66,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free (d);
 		return (NULL);
 	}
-	_strcpy(d->owner, owner);
+	_strcopy(d->owner, owner);
 
 	return (d);
 }
