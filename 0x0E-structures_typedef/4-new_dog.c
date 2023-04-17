@@ -16,13 +16,13 @@ int _strlen(char *str)
 }
 
 /**
- * _strcopy - copy string pointed by src into dest var
+ * _strcpy - copy string pointed by src into dest var
  *
  * @dest: buffer storing string to be copied
  * @src: buffer storing string to copy
  * Return: copied string
  */
-char *_strcopy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int index = 0;
 
