@@ -2,72 +2,51 @@
 #include <stdlib.h>
 
 /**
- * _strlen - return string length
- *
- * @str: string to be processed
- * Return: returns length of string
+ * new_dog - creates a new dog.
+ * @name: name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
+ * Return: struct dog.
+ * if fails, returns NULL.
  */
-int _strlen(char *str)
+ dog_t *new_dog(char *name, float age, char *owner)
 {
-	int len  = 0;
-	while (str)
-		len++
-	
-	return (len);
-}
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-/**
- * _strcopy - copy string pointed by src into dest var
- *
- * @dest: buffer storing string to be copied
- * @src: buffer storing string to copy
- * Return: copied string
- */
-char *_strcopy(char *dest, char *src)
-{
-	int index = 0;
-
-	for (; src[index]; index++)
-		dest[index] = src[index];
-	dest[index] = '\0';
-	return (dest);
-}
-
-/**
- * new_dog - creates a new dog
- *
- * @name: name of new dog
- * @age: age of new dog
- * @owner: owner of new dog
- * Return: returns NULL incase of failure
- */
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	dog_t *d = malloc(sizeof(dog_t));
-
-	if (d == NULL)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
+		free(p_dog);
 		return (NULL);
 	}
 
-	d->name = malloc(_strlen(name) + 1);
-	if (d->name == NULL)
+	for (lname = 0; name[lname]; lname++)
+		;
+
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
+
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
+
+	if (!(p_dog->name) || !(p_dog->owner))
 	{
-		free (d);
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
 		return (NULL);
 	}
-	_strcopy(d->name, name);
 
-	d->age = age;
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
 
-	d->owner = malloc(_strlen(owner) + 1);
-	if (d->owner == NULL)
-	{
-		free (d->name);
-		free (d);
-		return (NULL);
-	}
-	_strcopy(d->owner, owner);
+	p_dog->age = age;
 
-	return (d);
-}
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+																return (p_dog);
+															}
