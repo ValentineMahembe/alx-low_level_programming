@@ -5,6 +5,7 @@
  *
  * @seperator: string to be pinted btwn numbers
  * @n: number of integers passed to the function
+ * @...: trailling arguments
  * Return: void
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
