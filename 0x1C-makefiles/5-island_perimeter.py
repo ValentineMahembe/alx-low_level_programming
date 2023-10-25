@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""
-Module for island perimeter calculation
-"""
+""" Module for island perimeter calculation """
+
 
 def island_perimeter(grid):
-    """
-    Returns the perimeter of the island described in grid
-    """
+    """ Returns the perimeter of the island described in grid """
+
     width = len(grid[0])
     height = len(grid)
     edges = 0
@@ -22,4 +20,3 @@ def island_perimeter(grid):
                     edges += 1
 
     return size * 4 - edges * 2
-
